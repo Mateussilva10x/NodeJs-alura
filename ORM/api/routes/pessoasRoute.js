@@ -6,8 +6,21 @@ const router = Router();
 router
   .get("/pessoas", PessoaController.pegaTodasAsPessoas)
   .get("/pessoas/:id", PessoaController.pegaUmaPessoa)
+  .get(
+    "/pessoas/:estudanteId/matricula/:matriculaId",
+    PessoaController.pegaUmaMatricula
+  )
   .post("/pessoas", PessoaController.criarPessoa)
+  .post("/pessoas/:estudanteId/matricula", PessoaController.criarMatricula)
   .put("/pessoas/:id", PessoaController.atualizaPessoa)
-  .delete("/pessoas/:id", PessoaController.apagaPessoa);
+  .put(
+    "/pessoas/:estudanteId/matricula/:matriculaId",
+    PessoaController.atualizaMatricula
+  )
+  .delete("/pessoas/:id", PessoaController.apagaPessoa)
+  .delete(
+    "/pessoas/:estudanteId/matricula/:matriculaId",
+    PessoaController.apagaMatricula
+  );
 
 module.exports = router;

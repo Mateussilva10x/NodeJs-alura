@@ -11,9 +11,16 @@ router
     "/pessoas/:estudanteId/matricula/:matriculaId",
     PessoaController.pegaUmaMatricula
   )
+  .get("/pessoas/:estudanteId/matricula", PessoaController.pegaMatriculas)
+  .get(
+    "/pessoas/matricula/:turmaId/confirmadas",
+    PessoaController.pegaMatriculasPorTurma
+  )
+  .get("/pessoas/matricula/lotada", PessoaController.pegaTurmasLotadas)
   .post("/pessoas", PessoaController.criarPessoa)
   .post("/pessoas/:estudanteId/matricula", PessoaController.criarMatricula)
   .post("/pessoas/:id/restaura", PessoaController.restauraPessoa)
+  .post("/pessoas/:estudanteId/cancela", PessoaController.cancelaPessoa)
   .put("/pessoas/:id", PessoaController.atualizaPessoa)
   .put(
     "/pessoas/:estudanteId/matricula/:matriculaId",
